@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Download, RefreshCw, CheckCircle, XCircle, AlertTriangle, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase, SUPABASE_URL } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 
 interface EmailResult {
   id: string;
@@ -54,7 +54,7 @@ export function EmailResults({ refreshTrigger }: EmailResultsProps) {
 
   const downloadResults = async (format: 'json' | 'csv') => {
     try {
-      const response = await fetch(`${SUPABASE_URL}/functions/v1/get-email-results?format=${format}&status=${statusFilter === 'all' ? '' : statusFilter}`, {
+      const response = await fetch(`https://lzuzyjwhwliutqlvgymh.supabase.co/functions/v1/get-email-results?format=${format}&status=${statusFilter === 'all' ? '' : statusFilter}`, {
         headers: {
           'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
         },
