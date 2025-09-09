@@ -28,3 +28,4 @@ if (supabaseUrl === FALLBACK_URL) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const SUPABASE_URL = supabaseUrl
