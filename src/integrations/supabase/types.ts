@@ -14,7 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      email_verifications: {
+        Row: {
+          created_at: string
+          domain_exists: boolean | null
+          email: string
+          id: string
+          mx_records_exist: boolean | null
+          reason: string | null
+          status: string
+          syntax_valid: boolean | null
+          user_id: string
+          verified_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          domain_exists?: boolean | null
+          email: string
+          id?: string
+          mx_records_exist?: boolean | null
+          reason?: string | null
+          status: string
+          syntax_valid?: boolean | null
+          user_id: string
+          verified_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          domain_exists?: boolean | null
+          email?: string
+          id?: string
+          mx_records_exist?: boolean | null
+          reason?: string | null
+          status?: string
+          syntax_valid?: boolean | null
+          user_id?: string
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
